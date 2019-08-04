@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<profile name="Creality CR-10 0.6mm" version="2019-08-04 08:37:47" app="S3D-Software 4.1.2">
+<profile name="Creality CR-10 0.6mm" version="2019-08-04 09:09:19" app="S3D-Software 4.1.2">
   <baseProfile>Creality CR-10 (modified)</baseProfile>
   <printMaterial>ABS</printMaterial>
   <printQuality>Fast</printQuality>
@@ -45,7 +45,7 @@
   <useSkirt>1</useSkirt>
   <skirtExtruder>0</skirtExtruder>
   <skirtLayers>1</skirtLayers>
-  <skirtOutlines>1</skirtOutlines>
+  <skirtOutlines>2</skirtOutlines>
   <skirtOffset>4</skirtOffset>
   <usePrimePillar>0</usePrimePillar>
   <primePillarExtruder>999</primePillarExtruder>
