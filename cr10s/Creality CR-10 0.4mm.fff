@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<profile name="Creality CR-10 0.4mm" version="2019-08-04 09:09:16" app="S3D-Software 4.1.2">
+<profile name="Creality CR-10 0.4mm" version="2019-11-23 10:33:16" app="S3D-Software 4.1.1">
   <baseProfile>Creality CR-10</baseProfile>
-  <printMaterial>ABS</printMaterial>
+  <printMaterial>PLA</printMaterial>
   <printQuality>Medium</printQuality>
   <printExtruders></printExtruders>
   <extruder name="Primary Extruder">
@@ -14,9 +14,9 @@
     <retractionDistance>5</retractionDistance>
     <extraRestartDistance>0</extraRestartDistance>
     <retractionZLift>0</retractionZLift>
-    <retractionSpeed>2400</retractionSpeed>
-    <useCoasting>1</useCoasting>
-    <coastingDistance>2</coastingDistance>
+    <retractionSpeed>1800</retractionSpeed>
+    <useCoasting>0</useCoasting>
+    <coastingDistance>0.5</coastingDistance>
     <useWipe>0</useWipe>
     <wipeDistance>5</wipeDistance>
   </extruder>
@@ -34,15 +34,15 @@
   <firstLayerHeightPercentage>120</firstLayerHeightPercentage>
   <firstLayerWidthPercentage>150</firstLayerWidthPercentage>
   <firstLayerUnderspeed>0.5</firstLayerUnderspeed>
-  <useRaft>0</useRaft>
+  <useRaft>1</useRaft>
   <raftExtruder>0</raftExtruder>
   <raftTopLayers>3</raftTopLayers>
   <raftBaseLayers>2</raftBaseLayers>
-  <raftOffset>3</raftOffset>
+  <raftOffset>25</raftOffset>
   <raftSeparationDistance>0.14</raftSeparationDistance>
   <raftTopInfill>100</raftTopInfill>
   <aboveRaftSpeedMultiplier>0.3</aboveRaftSpeedMultiplier>
-  <useSkirt>1</useSkirt>
+  <useSkirt>0</useSkirt>
   <skirtExtruder>0</skirtExtruder>
   <skirtLayers>1</skirtLayers>
   <skirtOutlines>2</skirtOutlines>
@@ -62,9 +62,9 @@
   <infillExtruder>0</infillExtruder>
   <internalInfillPattern>Rectilinear</internalInfillPattern>
   <externalInfillPattern>Rectilinear</externalInfillPattern>
-  <infillPercentage>20</infillPercentage>
-  <outlineOverlapPercentage>15</outlineOverlapPercentage>
-  <infillExtrusionWidthPercentage>70</infillExtrusionWidthPercentage>
+  <infillPercentage>5</infillPercentage>
+  <outlineOverlapPercentage>30</outlineOverlapPercentage>
+  <infillExtrusionWidthPercentage>100</infillExtrusionWidthPercentage>
   <minInfillLength>5</minInfillLength>
   <infillLayerInterval>1</infillLayerInterval>
   <internalInfillAngles>45,-45</internalInfillAngles>
@@ -90,16 +90,17 @@
     <temperatureNumber>0</temperatureNumber>
     <isHeatedBed>0</isHeatedBed>
     <stabilizeAtStartup>1</stabilizeAtStartup>
-    <setpoint layer="1" temperature="225"/>
+    <setpoint layer="1" temperature="195"/>
   </temperatureController>
   <temperatureController name="Heated Bed">
     <temperatureNumber>0</temperatureNumber>
     <isHeatedBed>1</isHeatedBed>
     <stabilizeAtStartup>1</stabilizeAtStartup>
-    <setpoint layer="1" temperature="100"/>
+    <setpoint layer="1" temperature="70"/>
   </temperatureController>
   <fanSpeed>
     <setpoint layer="1" speed="0"/>
+    <setpoint layer="2" speed="100"/>
   </fanSpeed>
   <blipFanToFullPower>0</blipFanToFullPower>
   <adjustSpeedForCooling>1</adjustSpeedForCooling>
@@ -141,21 +142,21 @@
   <baudRateOverride>115200</baudRateOverride>
   <overridePrinterModels>1</overridePrinterModels>
   <printerModelsOverride></printerModelsOverride>
-  <startingGcode>G28 ; home all axes,G1 Z5 F3000 ; lift,G1 X5 Y10 F1500 ; move to prime,G1 Z0.2 F3000 ; get ready to prime,G92 E0 ; reset extrusion distance,G1 Y80 E10 F600 ; prime nozzle,G1 Y100 F5000 ; quick wipe</startingGcode>
+  <startingGcode>G28 ; home all axes,G1 Z5 F3000 ; lift,G1 X2 Y10 F1500 ; move to prime,G1 Z0.2 F3000 ; get ready to prime,G92 E0 ; reset extrusion distance,G1 Y250 E40 F2400 ; prime nozzle,G1 X7 F2400 ;,G1 E40 Y150 F2400 ; clear any drips,G92 E0 ; reset extrusion distance</startingGcode>
   <layerChangeGcode></layerChangeGcode>
   <retractionGcode></retractionGcode>
   <toolChangeGcode></toolChangeGcode>
-  <endingGcode>G28 X0 ; home x axis,M106 S0 ; turn off cooling fan,M104 S0 ; turn off extruder,M140 S0 ; turn off bed,M84 ; disable motors</endingGcode>
+  <endingGcode>G1 E-10 F1200 ; retract to avoid drips/clogs,G28 X0 ; home x axis,M104 S0 ; turn off extruder,M140 S0 ; turn off bed,G1 X0 Y295 F1000 ; move finished print out front,M84 ; disable motors,M106 S0 ; turn off cooling fan</endingGcode>
   <exportFileFormat>gcode</exportFileFormat>
   <celebration>0</celebration>
-  <celebrationSong>Random Song</celebrationSong>
+  <celebrationSong>Star Wars</celebrationSong>
   <postProcessing></postProcessing>
-  <defaultSpeed>2400</defaultSpeed>
+  <defaultSpeed>1800</defaultSpeed>
   <outlineUnderspeed>0.5</outlineUnderspeed>
   <solidInfillUnderspeed>0.8</solidInfillUnderspeed>
   <supportUnderspeed>0.8</supportUnderspeed>
-  <rapidXYspeed>4800</rapidXYspeed>
-  <rapidZspeed>1000</rapidZspeed>
+  <rapidXYspeed>2400</rapidXYspeed>
+  <rapidZspeed>1002</rapidZspeed>
   <minBridgingArea>50</minBridgingArea>
   <bridgingExtraInflation>0</bridgingExtraInflation>
   <bridgingExtrusionMultiplier>1</bridgingExtrusionMultiplier>
@@ -194,7 +195,7 @@
   <singleExtrusionEndpointExtension>0.2</singleExtrusionEndpointExtension>
   <horizontalSizeCompensation>0</horizontalSizeCompensation>
   <autoConfigureMaterial name="PLA">
-    <globalExtruderTemperature>210</globalExtruderTemperature>
+    <globalExtruderTemperature>195</globalExtruderTemperature>
     <globalBedTemperature>70</globalBedTemperature>
     <globalExtrusionMultiplier>1</globalExtrusionMultiplier>
     <fanSpeed>
@@ -232,7 +233,7 @@
     <topSolidLayers>3</topSolidLayers>
     <bottomSolidLayers>3</bottomSolidLayers>
     <skirtLayers>1</skirtLayers>
-    <infillPercentage>15</infillPercentage>
+    <infillPercentage>5</infillPercentage>
     <supportInfillPercentage>25</supportInfillPercentage>
   </autoConfigureQuality>
   <autoConfigureQuality name="Medium">
@@ -240,15 +241,15 @@
     <topSolidLayers>3</topSolidLayers>
     <bottomSolidLayers>3</bottomSolidLayers>
     <skirtLayers>1</skirtLayers>
-    <infillPercentage>20</infillPercentage>
+    <infillPercentage>5</infillPercentage>
     <supportInfillPercentage>30</supportInfillPercentage>
   </autoConfigureQuality>
   <autoConfigureQuality name="High">
     <layerHeight>0.1</layerHeight>
-    <topSolidLayers>4</topSolidLayers>
-    <bottomSolidLayers>4</bottomSolidLayers>
+    <topSolidLayers>3</topSolidLayers>
+    <bottomSolidLayers>3</bottomSolidLayers>
     <skirtLayers>2</skirtLayers>
-    <infillPercentage>30</infillPercentage>
+    <infillPercentage>5</infillPercentage>
     <supportInfillPercentage>40</supportInfillPercentage>
   </autoConfigureQuality>
 </profile>
